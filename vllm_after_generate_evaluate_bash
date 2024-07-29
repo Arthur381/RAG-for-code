@@ -1,0 +1,11 @@
+export language=python
+export ts_lib=./build/${language}-lang-parser.so; 
+export task=line_completion_oracle_unixcoder_cosine_sim
+export prompt_file=./data/${language}/${task}.jsonl 
+export output_dir=./tmp/crosscodeeval_testrun/;  
+python scripts/eval.py \
+  --prompt_file $prompt_file \
+  --output_dir $output_dir \
+  --ts_lib $ts_lib \
+  --language $language \
+  --only_compute_metric
