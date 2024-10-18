@@ -1,0 +1,13 @@
+export gpus=1
+export CUDA_VISIBLE_DEVICES=7
+export model=deepseek-ai/deepseek-coder-1.3b-base
+export language=python
+export task=line_completion_oracle_openai_cosine_sim_final
+export output_dir=./tmp/crosscodeeval_testrun/
+/usr/bin/python3 /home/zhangxuanming/cceval/scripts/vllm_inference1.py \
+  --tp $gpus \
+  --task $task \
+  --language $language \
+  --model $model \
+  --output_dir $output_dir \
+  --use_crossfile_context 
